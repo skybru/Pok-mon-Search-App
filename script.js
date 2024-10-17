@@ -11,7 +11,7 @@ const pokeDefense = document.getElementById("defense");
 const pokeSpAtt = document.getElementById("special-attack");
 const pokeSpDef = document.getElementById("special-defense");
 const pokeSpeed = document.getElementById("speed");
-const pokeSprite = document.getElementById("sprite");
+const pokeSprite = document.getElementById("sprite-container");
 const pokeEndpoint = "https://pokeapi-proxy.freecodecamp.rocks/api/pokemon/";
 const infoContainer = document.getElementById("information-container");
 
@@ -25,10 +25,10 @@ const fetchData = async (input) => {
     } catch (e) {
         console.log(e);
     }
-
+    
     const {results} = allData;
 
-    for (item of results) {
+    for (let item of results) {
         const {id, name, url} = item;
         //number, string, string
         //console.log(typeof(input)) = string
@@ -38,7 +38,7 @@ const fetchData = async (input) => {
             return showPokemonData(url);
         }
     }
-    
+
     alert("Pokémon not found");
     infoContainer.style.display = "none";
 };
@@ -64,7 +64,7 @@ const showPokemonData = async (pokeUrl) => {
     pokeTypes.innerHTML = types.map(item => {
         return `<div id=${item.type.name}>${item.type.name.toUpperCase()}</div>`;
     }).join("");
-    pokeSprite.innerHTML = `<img src=${sprites.front_default}>`;
+    pokeSprite.innerHTML = `<img id="sprite" src=${sprites.front_default}>`;
     pokeHp.innerHTML += stats[0].base_stat;
     pokeAttack.innerHTML += stats[1].base_stat;
     pokeDefense.innerHTML += stats[2].base_stat;
@@ -95,9 +95,5 @@ pokeForm.addEventListener("submit", (event) => {
     pokeSpDef.innerHTML = "Sp. Def: ";
     pokeSpeed.innerHTML = "Speed: ";
     pokeTypes.innerHTML = "";
+    pokeSprite.innerHTML = "";
 });
-
-
-
-
-
