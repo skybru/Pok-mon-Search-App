@@ -30,19 +30,6 @@
     --top-height: 75px;
 }
 
-#types {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    width: 20%;
-}
-
-#types > div {
-    border: 1px solid black;
-    border-radius: 10%;
-    padding: 5px;
-}
-
 #normal {
     color: white;
     background-color: var(--normal);
@@ -139,7 +126,7 @@
 }
 
 /* Exo thin font from Google. */
-@import url(https://fonts.googleapis.com/css?family=Exo:100);
+/*@import url(https://fonts.googleapis.com/css?family=Exo:100);
 /* Background data (Original source: https://subtlepatterns.com/grid-me/) */
 /* Animations */
 @-webkit-keyframes bg-scrolling-reverse {
@@ -182,6 +169,26 @@
     background-position: 50px 50px;
   }
 }
+@keyframes flowing-top {
+  0% {
+    margin-top: 18px;
+  }
+  50%{
+    margin-top: 11px;
+  }
+  100% {
+    margin-top: 18px;
+  }
+
+}
+@keyframes flowing-down {
+  0% {
+    margin-top: 10px;
+  }
+  100% {
+    margin-top: 18px;
+  }
+}
 
 body {
     background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAIAAACRXR/mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABnSURBVHja7M5RDYAwDEXRDgmvEocnlrQS2SwUFST9uEfBGWs9c97nbGtDcquqiKhOImLs/UpuzVzWEi1atGjRokWLFi1atGjRokWLFi1atGjRokWLFi1af7Ukz8xWp8z8AAAA//8DAJ4LoEAAlL1nAAAAAElFTkSuQmCC") repeat 0 0;
@@ -200,7 +207,9 @@ body {
 }
 
 #information-container {
-    margin-top: calc(var(--top-height) + 100px);
+    margin-top: calc(var(--top-height) + 50px);
+    font-size: 30px;
+    display: none;
 }
 
 #topper {
@@ -210,6 +219,7 @@ body {
     height: var(--top-height);
     background: linear-gradient(90deg, #8f1313 2%, red 10%, red 90%, #8f1313 98%);
     color: white;
+    border-bottom: 4px solid black;
 }
 
 #topper > h2 {
@@ -229,6 +239,8 @@ body {
     border-left: 30px solid transparent;
     border-right: 30px solid transparent;
     border-top: 42px solid white;
+    animation: flowing-top 3s infinite;
+    animation-timing-function: alternate;
 }
 
 #back-arrow {
@@ -240,9 +252,150 @@ body {
     border-left: 29px solid transparent;
     border-right: 29px solid transparent;
     border-top: 48px solid rgb(0, 0, 0);
+    animation: flowing-top 3s infinite;
+    animation-timing-function: alternate;
 }
 
 #search-container {
     position: relative;
-    top: calc(var(--top-height) + 50px);
+    top: calc(var(--top-height) + 20px);
+    left: 30%;
+    width: 100%;
+}
+
+#search-input {
+  height: 40px;
+  width: 340px;
+  border: 2px solid black;
+  padding: 5px;
+  
+}
+
+#search-button {
+  height: 40px;
+  width: 150px;
+  border: 2px solid black;
+  cursor: pointer;
+  font-size: 13px;
+  background-color: rgb(255, 255, 255);
+}
+
+#search-button:hover {
+  background-color: red;
+  color: white;
+  transition: 0.5s;
+}
+
+#sprite {
+  width: 350px;
+  height: 350px;
+  /*background-color: azure;*/
+  position: absolute;
+  top: calc(var(--top-height) + 80px);
+  left: 200px;
+}
+
+#sprite > img {
+  position: relative;
+  width: 350px;
+  height: 350px;
+}
+
+#name-info-layout {
+  position: absolute;
+  top: calc(var(--top-height) + 120px);
+  right: 6%;
+  border: 4px solid black;
+  border-radius: 2%;
+  width: 50%;
+  height: 140px;
+  background: linear-gradient(red 47%, white 50%);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  color: white;
+  text-shadow: 2px 2px black;
+  padding: 18px;
+}
+
+.name-info-element {
+  position: relative;
+  height: 30px;
+}
+
+#pokemon-name {
+  right: 30px;
+}
+
+#pokemon-id {
+  left: 50px;
+}
+
+#types {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 20%;
+  position: absolute;
+  top: calc(var(--top-height) + 200px);
+  right: 6%;
+  width: 50%;
+  height: 50px;
+  text-shadow: 2px 2px rgb(103, 103, 103);
+}
+
+#types > div {
+  border: 2px solid black;
+  border-radius: 4%;
+  padding: 10px;
+}
+
+#bio-info-layout {
+  position: absolute;
+  top: calc(var(--top-height) + 300px);
+  width: 35%;
+  border: 4px solid black;
+  border-radius: 2%;
+  right: 6%;
+  height: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background: linear-gradient(90deg, red 5%, white 10%);
+}
+
+.bio-info-element {
+  padding-left: 7%;
+  margin-left: 10%;
+  text-shadow: 2px 2px rgb(164, 167, 168);
+}
+
+#weight {
+  border-bottom: 7px dashed rgb(168, 207, 221);
+  padding-bottom: 12px;
+}
+
+#stats-info-layout {
+  position: absolute;
+  bottom: calc(var(--top-height) - 30px);
+  left: 3%;
+  right: 3%;
+  border: 4px solid black;
+  border-radius: 1%;
+  margin: auto;
+  width: 94%;
+  height: 32%;
+  padding: 1%;
+  font-size: 1.5em;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  background: linear-gradient(90deg, red 3%, white 4%, white 96%, red 97%);
+  text-shadow: 2px 2px rgb(164, 167, 168);
+}
+
+#stats-info-layout > div {
+  padding-top: 14px;
+  padding-bottom: 19px;
+  padding-left: 6%;
 }

@@ -13,6 +13,7 @@ const pokeSpDef = document.getElementById("special-defense");
 const pokeSpeed = document.getElementById("speed");
 const pokeSprite = document.getElementById("sprite");
 const pokeEndpoint = "https://pokeapi-proxy.freecodecamp.rocks/api/pokemon/";
+const infoContainer = document.getElementById("information-container");
 
 const fetchData = async (input) => {
     let allData = {};
@@ -39,6 +40,7 @@ const fetchData = async (input) => {
     }
     
     alert("Pokémon not found");
+    infoContainer.style.display = "none";
 };
 
 const showPokemonData = async (pokeUrl) => {
@@ -53,11 +55,12 @@ const showPokemonData = async (pokeUrl) => {
     }
 
     const {name, id, weight, height, stats, sprites, types} = pokeDataJson;
+    infoContainer.style.display = "block";
 
-    pokeName.innerHTML += `${name.toUpperCase()}`;
-    pokeId.innerHTML += `#${id}`;
-    pokeWeight.innerHTML += `${weight}`;
-    pokeHeight.innerHTML += `${height}`;
+    pokeName.innerHTML = `${name.toUpperCase()}`;
+    pokeId.innerHTML = `#${id}`;
+    pokeWeight.innerHTML += `${weight}lbs`;
+    pokeHeight.innerHTML += `${height}"`;
     pokeTypes.innerHTML = types.map(item => {
         return `<div id=${item.type.name}>${item.type.name.toUpperCase()}</div>`;
     }).join("");
@@ -80,6 +83,7 @@ const formatInput = (input) => {
 pokeForm.addEventListener("submit", (event) => {
     event.preventDefault(); //prevent page refresh after clicking submit
     formatInput(pokeInput.value);
+    infoContainer.style.display = "none";
     pokeName.innerHTML = "Name: ";
     pokeId.innerHTML = "ID: ";
     pokeWeight.innerHTML = "Weight: ";
@@ -90,6 +94,7 @@ pokeForm.addEventListener("submit", (event) => {
     pokeSpAtt.innerHTML = "Sp. Att: ";
     pokeSpDef.innerHTML = "Sp. Def: ";
     pokeSpeed.innerHTML = "Speed: ";
+    pokeTypes.innerHTML = "";
 });
 
 
