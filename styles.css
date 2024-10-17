@@ -1,0 +1,248 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+
+:root {
+    --normal: #9FA19F;
+    --fighting: #FF8000;
+    --flying: #81B9EF;
+    --poison: #9141CB;
+    --ground: #915121;
+    --rock: #AFA981;
+    --bird: #68A090;
+    --bug: #91A119;
+    --ghost: #704170;
+    --fire: #E62829;
+    --water: #2980EF;
+    --grass: #3FA129;
+    --electric: #FAC000;
+    --psychic: #EF4179;
+    --ice: #3DCEF3;
+    --dragon: #5060E1;
+    --dark: #624D4E;
+    --steel: #60A1B8;
+    --fairy: #EF70EF;
+    --top-height: 75px;
+}
+
+#types {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 20%;
+}
+
+#types > div {
+    border: 1px solid black;
+    border-radius: 10%;
+    padding: 5px;
+}
+
+#normal {
+    color: white;
+    background-color: var(--normal);
+}
+
+#fighting {
+    color: white;
+    background-color: var(--fighting);
+}
+
+#flying {
+    color: white;
+    background-color: var(--flying);
+}
+
+#poison {
+    color: white;
+    background-color: var(--poison);
+}
+
+#ground {
+    color: white;
+    background-color: var(--ground);
+}
+
+#rock {
+    color: white;
+    background-color: var(--rock);
+}
+
+#bird {
+    color: white;
+    background-color: var(--bird);
+}
+
+#bug {
+    color: white;
+    background-color: var(--bug);
+}
+
+#ghost {
+    color: white;
+    background-color: var(--ghost);
+}
+
+#fire {
+    color: white;
+    background-color: var(--fire);
+}
+
+#water {
+    color: white;
+    background-color: var(--water);
+}
+
+#grass {
+    color: white;
+    background-color: var(--grass);
+}
+
+#electric {
+    color: white;
+    background-color: var(--electric);
+}
+
+#psychic {
+    color: white;
+    background-color: var(--psychic);
+}
+
+#ice {
+    color: white;
+    background-color: var(--ice);
+}
+
+#dragon {
+    color: white;
+    background-color: var(--dragon);
+}
+
+#dark {
+    color: white;
+    background-color: var(--dark);
+}
+
+#steel {
+    color: white;
+    background-color: var(--steel);
+}
+
+#fairy {
+    color: white;
+    background-color: var(--fairy);
+}
+
+/* Exo thin font from Google. */
+@import url(https://fonts.googleapis.com/css?family=Exo:100);
+/* Background data (Original source: https://subtlepatterns.com/grid-me/) */
+/* Animations */
+@-webkit-keyframes bg-scrolling-reverse {
+  100% {
+    background-position: 50px 50px;
+  }
+}
+@-moz-keyframes bg-scrolling-reverse {
+  100% {
+    background-position: 50px 50px;
+  }
+}
+@-o-keyframes bg-scrolling-reverse {
+  100% {
+    background-position: 50px 50px;
+  }
+}
+@keyframes bg-scrolling-reverse {
+  100% {
+    background-position: 50px 50px;
+  }
+}
+@-webkit-keyframes bg-scrolling {
+  0% {
+    background-position: 50px 50px;
+  }
+}
+@-moz-keyframes bg-scrolling {
+  0% {
+    background-position: 50px 50px;
+  }
+}
+@-o-keyframes bg-scrolling {
+  0% {
+    background-position: 50px 50px;
+  }
+}
+@keyframes bg-scrolling {
+  0% {
+    background-position: 50px 50px;
+  }
+}
+
+body {
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAIAAACRXR/mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABnSURBVHja7M5RDYAwDEXRDgmvEocnlrQS2SwUFST9uEfBGWs9c97nbGtDcquqiKhOImLs/UpuzVzWEi1atGjRokWLFi1atGjRokWLFi1atGjRokWLFi1af7Ukz8xWp8z8AAAA//8DAJ4LoEAAlL1nAAAAAElFTkSuQmCC") repeat 0 0;
+    -webkit-animation: bg-scrolling 2s infinite;
+    /* Safari 4+ */
+    -moz-animation: bg-scrolling 2s infinite;
+    /* Fx 5+ */
+    -o-animation: bg-scrolling 2s infinite;
+    /* Opera 12+ */
+    animation: bg-scrolling 2s infinite;
+    /* IE 10+ */
+    -webkit-animation-timing-function: linear;
+    -moz-animation-timing-function: linear;
+    -o-animation-timing-function: linear;
+    animation-timing-function: linear;
+}
+
+#information-container {
+    margin-top: calc(var(--top-height) + 100px);
+}
+
+#topper {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: var(--top-height);
+    background: linear-gradient(90deg, #8f1313 2%, red 10%, red 90%, #8f1313 98%);
+    color: white;
+}
+
+#topper > h2 {
+    position: static;
+    font-size: 3em;
+    margin-top: 18px;
+    margin-left: 140px;
+    text-shadow: 4px 3px black;
+}
+
+#top-arrow {
+    position: absolute;
+    width: 0;
+    height: 0;
+    margin-top: 18px;
+    margin-left: 75px;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-top: 42px solid white;
+}
+
+#back-arrow {
+    position: absolute;
+    width: 0;
+    height: 0;
+    margin-top: 19px;
+    margin-left: 76px;
+    border-left: 29px solid transparent;
+    border-right: 29px solid transparent;
+    border-top: 48px solid rgb(0, 0, 0);
+}
+
+#search-container {
+    position: relative;
+    top: calc(var(--top-height) + 50px);
+}
